@@ -1,10 +1,12 @@
 
 {% extends 'base.html.twig' %}
 
+{% block title 'Accueil | ' ~ parent() %}
+
 {% block content %}
 
-<form method="POST" class="form-signin" name="frm" onsubmit="">
-      <img class="mb-4 image" src="" alt="Gawa">
+<form method="POST" class="form-signin" name="frm" onsubmit="return check()">
+      <img class="mb-4 image" src="{{asset('assets/images/logo.png')}}" alt="Gawa">
       <label for="inputNumber" class="sr-only">Saisir un nombre</label>
       <input type="text" id="inputNumber" class="form-control" placeholder="Saisir un nombre entier inférieur ou égal à ..." name="limit">
       <span id="msg"></span>

@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="{{app.request.locale}}">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <title>GAWA WIKICIV</title>
+    <title>{% block title %}Générateur d'Articles Wikipédia à Améliorer (GAWA){% endblock %}</title>
 
       <!-- Bootstrap core CSS -->
-    <link href="" rel="stylesheet">
+    <link href="{{asset('assets/css/bootstrap.css')}}" rel="stylesheet">
 
       <!-- Custom styles for this template -->
-    <link href="" rel="stylesheet">
+    <link href="{{asset('assets/css/main.css')}}" rel="stylesheet">
 
       <!-- Favicon -->
-    <link rel="shortcut icon" href="">
+    <link rel="shortcut icon" href="{{asset('assets/images/favicon.ico')}}">
 
     <style>
       .bd-placeholder-img {
@@ -34,9 +34,9 @@
   </head>
   <body class="text-center">
     {% block content %}{% endblock %}
-    <script type="text/javascript" src=""></script>
-    <script type="text/javascript" src=""></script>
+    <script type="text/javascript" src="{{asset('assets/js/bootstrap.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/js/main.js')}}"></script>
     <!-- Canvas.js -->
-    <script src=""></script>
+    <script type="text/javascript" src="{{asset('assets/js/canvasjs.js')}}"></script>
 </body>
 </html>

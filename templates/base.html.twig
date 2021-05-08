@@ -34,6 +34,16 @@
   </head>
   <body class="text-center">
     {% block content %}{% endblock %}
+    <div id="footer">
+    <div class="text_gauche">
+      <p>GAWA est un outil géré par<a class="lien_google" href="#"> Wikimedia Côte d'Ivoire</a></p>
+    </div>
+    <div class="text_droit">
+      <a class="lien_google" href="#">Statistiques</a> 
+      <a class="lien_google" href="#">À&middot;propos</a>
+      <a class="lien_google" href="#">Aide</a>
+    </div>
+  </div>
     <script type="text/javascript" src="{{asset('assets/js/bootstrap.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/js/main.js')}}"></script>
     <!-- Canvas.js -->

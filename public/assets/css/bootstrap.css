@@ -153,7 +153,7 @@ sup {
 }
 
 a {
-  color: #007bff;
+  color: #319865;
   text-decoration: none;
   background-color: transparent;
 }
@@ -1865,7 +1865,7 @@ pre code {
   color: #495057;
   background-color: #fff;
   background-clip: padding-box;
-  border: 1px solid #ced4da;
+  border: 1px solid #fff;
   border-radius: 0.25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
@@ -2377,7 +2377,6 @@ textarea.form-control {
 
 .btn {
   display: inline-block;
-  font-weight: bold;
   color: #212529;
   text-align: center;
   vertical-align: middle;
@@ -2420,17 +2419,17 @@ fieldset:disabled a.btn {
 }
 
 .btn-primary {
-  color: #007bff;
-  background-color: transparent;
-  border-color: #007bff;
+  color: #fff;
+  background-color: #319865;
+  border-color: #319865;
   padding-left: 30px;
   padding-right: 30px;
 }
 
 .btn-primary:hover {
   color: #fff;
-  background-color: #0069d9;
-  border-color: #0062cc;
+  background-color: #044307;
+  border-color: #044307;
 }
 
 .btn-primary:focus, .btn-primary.focus {

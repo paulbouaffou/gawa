@@ -34,16 +34,35 @@
   </head>
   <body class="text-center">
     {% block content %}{% endblock %}
-    <div id="footer">
-    <div class="text_gauche">
-      <p>GAWA est un outil géré par<a class="lien_google" href="#"> Wikimedia Côte d'Ivoire</a></p>
-    </div>
-    <div class="text_droit">
-      <a class="lien_google" href="#">Statistiques</a> 
-      <a class="lien_google" href="#">À&middot;propos</a>
-      <a class="lien_google" href="#">Aide</a>
-    </div>
-  </div>
+    <footer>
+      <div id="footer-wrapper">
+      <div class="footer-limit" id="footer-limit">
+      <div class="footer no-items section" id="footer-1"></div>
+      </div>
+      </div>
+      <!-- Footer menu start -->
+      <div class="footmenu">
+      <div class="footer-menu section" id="Postwidegt3" name="Footer Menu"><div class="widget LinkList" data-version="1" id="LinkList101">
+      <div class="widget-content">
+      <ul>
+        <li><a href="#" rel="nofollow" title="About">About</a></li>
+        <li><a href="#" rel="nofollow" title="Contact">Contact</a></li>
+        <li><a href="#" rel="nofollow" title="Disclaimer">Disclaimer</a></li>
+        <li><a href="#" rel="nofollow" title="Privacy Policy">Privacy Policy</a></li>
+        <li><a href="/p/lorem-ipsum-dolor-sit-amet-consectetur.html" rel="nofollow" title="Static">Static</a></li>
+        <li><a href="/error-pages.html" rel="nofollow" title="Error 404">Error 404</a></li>
+      </ul>
+      </div>
+      </div></div>
+      </div>
+      <!-- Footer menu end -->
+      <!-- Footer credit start -->
+      <div class="credit-wrapper"><div class="creditfooter">
+      Copyright © 2019 <a href="https://labibliadice.xyz/" title="La Biblia Dice">La Biblia Dice</a>. All Rights Reserved.
+      </div>
+      </div>
+      <!-- Footer credit end -->
+    </footer>
     <script type="text/javascript" src="{{asset('assets/js/bootstrap.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/js/main.js')}}"></script>
     <!-- Canvas.js -->

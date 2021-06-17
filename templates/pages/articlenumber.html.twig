@@ -7,7 +7,15 @@
 
 <div class="form-signin">
   <div class="alert alert-light" role="alert">
-      Voici en ordre alphabétique, la liste complète des articles à wikipédia à améliorer.
+    <h2>RÉSULTAT</h2>
+    <hr/>
+    Le résultat ci-dessous vous présente de manière aléatoire <strong>
+    {% if articles|length <= 1 %} 
+    {{articles|length}}</strong> article
+    {% else %}
+    {{articles|length}}</strong> articles
+    {% endif %}
+    wikipédia à améliorer.
   </div>
     <div id="results-table">
      <table class="table">
@@ -31,6 +39,8 @@
 
       </tbody>
      </table>
+    <br>
+    <br>
     <br>
     <br>
     <br>

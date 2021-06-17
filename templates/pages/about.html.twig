@@ -1,0 +1,44 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title 'A propos | ' ~ parent() %}
+
+{% block content %}
+
+<div class="form-signin">
+  <div class="alert alert-light" role="alert">
+      <h2>RÉSULTATS</h2>
+      <hr/>
+      Nous avons {{articles|length}} articles commerçant par la lettre {# {{data}} #}.
+  </div>
+    <div id="results-table">
+     <table class="table">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">N°</th>
+          <th scope="col">Articles</th>
+        </tr>
+      </thead>
+      <tbody>
+    {% if articles|length > 0 %}
+        {% for article in articles %}
+        <tr>
+           <th scope="row">{{loop.index}}</th>
+           <td><a href="https://fr.wikipedia.org/wiki/{{article.name}}" target="_blank">{{article.name}}</a></td>
+         </tr>
+        {% endfor %}
+    {% else %}
+        <h3>Aucun article à améliorer dans la base de données !!!</h3>
+    {% endif %}
+
+      </tbody>
+     </table>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    </div>
+</div>
+
+{% endblock %}

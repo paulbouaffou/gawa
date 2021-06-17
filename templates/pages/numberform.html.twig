@@ -1,0 +1,16 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title 'Formulaire pour rechercher un article à améliorer par nombre | ' ~ parent() %}
+
+{% block content %}
+
+<div class="form-signin">
+  <form name="form" method="POST">
+    <img class="mb-4 image1" src="{{asset('assets/images/logo.jpg')}}" alt="Gawa">
+   <input type="text" id="form_rechercher" name="form[rechercher]" required="required" class="form-control" id="inputNumber" placeholder="Saisir un nombre entier inférieur ou égal à {{articles|length}}" />
+    <span id="msg"></span> 
+  <div><button type="submit" id="form_save" name="form[save]" class="btn btn-primary">Afficher</button></div></form>
+</div>
+
+{% endblock %}

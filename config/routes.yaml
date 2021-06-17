@@ -1,12 +1,34 @@
 # config/routes.yaml
 
-# the "app_lucky_number" route name is not important yet
+# the "app_home" route name is not important yet
 index:
     path: /
     controller: App\Controller\PagesController::home
 
+# the "app_pagebutton" route name is not important yet
+pagebutton:
+    path: /pagebutton
+    controller: App\Controller\PagesController::pagebutton
 
-# the "app_lucky_number" route name is not important yet
-article:
-    path: /article
-    controller: App\Controller\ArticleWikiController::article
+
+# the "app_articleletter" route name is not important yet
+articleletter:
+    path: /articleletter
+    controller: App\Controller\PagesController::articleletter
+
+# the "app_articlenumber" route name is not important yet
+articlenumber:
+    path: /articlenumber
+    controller: App\Controller\PagesController::articlenumber
+
+
+# the "app_numberform" route name is not important yet
+numberform:
+    path: /numberform
+    controller: App\Controller\PagesController::numberform
+
+
+# the "app_letterform" route name is not important yet
+letterform:
+    path: /letterform
+    controller: App\Controller\PagesController::letterform

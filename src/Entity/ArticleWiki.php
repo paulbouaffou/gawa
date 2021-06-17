@@ -22,8 +22,4 @@ class ArticleWiki
      */
     public $name;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
 }

@@ -1,7 +1,7 @@
 
 {% extends 'base.html.twig' %}
 
-{% block title 'Accueil | ' ~ parent() %}
+{% block title 'Rechercher un article à améliorer en fonction de votre choix | ' ~ parent() %}
 
 {% block content %}
 
@@ -11,11 +11,13 @@
 <!-- https://github.com/matteobruni/tsparticles -->
 
 <div class="form-signin-1">
-      <img class="mb-4 image1" src="{{asset('assets/images/logo.jpg')}}" alt="Gawa">
-      <h4>Bienvenue sur Gawa,
-      <br/>l'outil de recherche par <span id="app">nombre</span> <br/>d'article wikipédia à améliorer.</h4>
+      <h4>Rechercher par :</h4>
       <hr/>
-      <a href="/pagebutton" class="btn btn-primary">Rechercher</a>
+      <a href="/numberform" class="btn btn-primary">Nombre</a>
+      <a href="/letterform" class="btn btn-primary">Lettre</a>
+      <a href="#" class="btn btn-primary">Genre</a>
+      <a href="#" class="btn btn-primary">Thématique</a>
+      <a href="#" class="btn btn-primary">Catégorie</a>
 </div>
 
 {% endblock %}

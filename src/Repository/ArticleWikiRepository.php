@@ -18,33 +18,40 @@ class ArticleWikiRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, ArticleWiki::class);
     }
-
-    // /**
-    //  * @return ArticleWiki[] Returns an array of ArticleWiki objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    /**
+     * @return ArticleWiki[]
+     */
+    public function findArticleByNumber(int $nombre): array
     {
-        return $this->createQueryBuilder('a')
-            ->andWhere('a.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('a.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+        $conn = $this->getEntityManager()->getConnection();
 
-    /*
-    public function findOneBySomeField($value): ?ArticleWiki
-    {
-        return $this->createQueryBuilder('a')
-            ->andWhere('a.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        $sql = '
+            SELECT * FROM article_wiki 
+            WHERE id <= :nombre
+            ';
+
+        $stmt = $conn->prepare($sql);
+        $stmt->execute(['nombre' => $nombre]);
+
+        // returns an array of arrays (i.e. a raw data set)
+        return $stmt->fetchAllAssociative();
     }
-    */
+
+    /**
+     * @return ArticleWiki[]
+     */
+    public function findArticleByLetter($letter): array
+    {
+        $conn = $this->getEntityManager()->getConnection();
+
+        $sql = '
+            SELECT * FROM article_wiki 
+            WHERE name LIKE :letter
+            ';
+        $stmt = $conn->prepare($sql);
+        $stmt->execute(['letter' => $letter.'%']);
+
+        // returns an array of arrays (i.e. a raw data set)
+        return $stmt->fetchAllAssociative();
+    }
 }

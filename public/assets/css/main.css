@@ -46,7 +46,7 @@ canvas {
   width: 100%;
   max-width: 480px;
   padding: 30px;
-  padding-top: 30px;
+  padding-top: 25px;
   margin: auto;
   background-color: #e6e7e8;
 }
@@ -54,7 +54,7 @@ canvas {
 .form-signin-1 {
   width: 100%;
   max-width: 480px;
-  padding: 30px;
+  padding: 25px;
   padding-top: 30px;
   margin: auto;
   background-color: #fff;

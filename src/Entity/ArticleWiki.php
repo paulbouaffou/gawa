@@ -23,3 +23,9 @@ class ArticleWiki
     public $name;
 
 }
+
+
+
+
+
+

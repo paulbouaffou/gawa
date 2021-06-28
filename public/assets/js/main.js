@@ -7,7 +7,7 @@
 
 
         function check(){
-             var nbr=document.form.form[rechercher].value;
+             var nbr=document.form.form["rechercher"].value;
              if (isNaN(nbr)){
                  document.getElementById("msg").innerHTML="Entrez uniquement une valeur numérique !";
                  return false;

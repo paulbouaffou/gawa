@@ -1,33 +1,20 @@
-// Author: Paul Bouaffou
-// License: MIT
-// Description: Text Javascript
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function () {
+  'use strict'
 
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll('.needs-validation')
 
-/* -------------- Vérifier les valeurs saisies dans le champ avant sa validation ---------------*/
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
 
-
-        function check(){
-             var nbr=document.form.form["rechercher"].value;
-             if (isNaN(nbr)){
-                 document.getElementById("msg").innerHTML="Entrez uniquement une valeur numérique !";
-                 return false;
-             }else if (nbr == "" || nbr == null) {
-             	document.getElementById("msg").innerHTML="Veuillez saisir une valeur numérique !";
-             	return false;
-             }else if (nbr < 0) {
-                document.getElementById("msg").innerHTML="Entrez uniquement un nombre positif !";
-                return false;
-            }else if (nbr != parseInt(nbr)) {
-                document.getElementById("msg").innerHTML="Entrez uniquement un nombre entier !";
-                return false;
-            }else if (nbr == 0){
-                document.getElementById("msg").innerHTML="Entrez uniquement une valeur numérique non nul !";
-                return false;               
-            }else if (nbr > {{articles|length}}){
-                document.getElementById("msg").innerHTML="Entrez une valeur numérique inférieur ou égal à {{articles|length}} !";
-                return false;               
-            }else{
-                 return true;
-             }
-         }
-
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()

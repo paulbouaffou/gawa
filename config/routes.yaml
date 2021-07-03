@@ -5,6 +5,7 @@ index:
     path: /
     controller: App\Controller\PagesController::home
 
+
 # the "app_pagebutton" route name is not important yet
 pagebutton:
     path: /pagebutton
@@ -32,3 +33,9 @@ numberform:
 letterform:
     path: /letterform
     controller: App\Controller\PagesController::letterform
+
+
+# the "app_genreform" route name is not important yet
+genreform:
+    path: /genreform
+    controller: App\Controller\PagesController::genreform

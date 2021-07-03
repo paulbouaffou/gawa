@@ -5,11 +5,13 @@
 
 {% block content %}
 
-<div class="form-signin" onsubmit="return check()">
-  <form name="form" method="POST">
+<div class="form-signin">
+  <form class="needs-validation" name="form" method="POST" novalidate>
     <img class="mb-4 image1" src="{{asset('assets/images/logo.jpg')}}" alt="Gawa">
    <input type="text" id="form_rechercher" name="form[rechercher]" required="required" class="form-control" id="inputNumber" placeholder="Saisir un nombre entier inférieur ou égal à {{articles|length}}" />
-    <span id="msg"></span> 
+    <div class="invalid-feedback">
+      Veuillez entrer un nombre entier valide.
+    </div> 
   <div><button type="submit" id="form_save" name="form[save]" class="btn btn-primary">Afficher</button></div></form>
 </div>
 

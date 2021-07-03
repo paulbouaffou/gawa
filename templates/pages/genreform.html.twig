@@ -1,0 +1,15 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title 'Formulaire pour rechercher un article à améliorer par genre | ' ~ parent() %}
+
+{% block content %}
+
+<div class="form-signin">
+  {{ form_start(form, {'method': 'POST'}) }}
+    <img class="mb-4 image1" src="{{asset('assets/images/logo.jpg')}}" alt="Gawa">
+    <span id="msg"></span>
+  {{ form_end(form) }}
+</div>
+
+{% endblock %}

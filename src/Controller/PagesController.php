@@ -11,6 +11,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -147,6 +148,70 @@ class PagesController extends AbstractController
 	    }
 
     }
+
+     /**
+
+    * @Route("/genreform", name="genreform")
+
+    */
+    public function genreform(Request $request, ArticleWikiRepository $articlewikiRepository): Response
+    {
+
+        $form = $this->createFormBuilder()
+            ->add('Genre', ChoiceType::class, ['label' => false, 'attr' => 
+                ['class' => 'form-control', 
+                 'id' => 'inputGenre'],
+                'choices'  => [
+                'Veuillez choisir votre genre' => null,
+                'Masculin' => true,
+                'Féminin' => false,
+                ],])
+            ->add('save', SubmitType::class, ['attr' => 
+                    ['class' => 'btn btn-primary'],
+                    'label' => 'Afficher'])
+            ->getForm(); 
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            // $form->getData() holds the submitted values
+            // but, the original `$task` variable has also been updated
+            $array_data = $form->getData();
+
+            if ($array_data = true) {
+                
+            }
+
+            // ... perform some action, such as saving the task to the database
+            // for example, if Task is a Doctrine entity, save it!
+            // $entityManager = $this->getDoctrine()->getManager();
+            // $entityManager->persist($task);
+            // $entityManager->flush();
+
+            //return $this->redirectToRoute('task_success');
+
+            $articlewiki = $this->getDoctrine()
+                ->getRepository(ArticleWiki::class)
+                ->findArticleByNumber($value);
+
+            return $this->render('pages/articlegenre.html.twig', ['articles' => $articlewiki]);
+
+
+        }
+        else{
+
+            //return $this->redirectToRoute('task_success');
+
+            $articlewiki = $this->getDoctrine()
+                ->getRepository(ArticleWiki::class)
+                ->findAll();
+
+            return $this->render('pages/genreform.html.twig', [
+            'form' => $form->createView(), 'articles' => $articlewiki]);
+
+        }
+    }
+
 	
 	
 } 

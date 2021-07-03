@@ -97,6 +97,15 @@
     "nikic/php-parser": {
         "version": "v4.10.5"
     },
+    "phpdocumentor/reflection-common": {
+        "version": "2.2.0"
+    },
+    "phpdocumentor/reflection-docblock": {
+        "version": "5.2.2"
+    },
+    "phpdocumentor/type-resolver": {
+        "version": "1.4.0"
+    },
     "psr/cache": {
         "version": "1.0.1"
     },
@@ -284,6 +293,12 @@
             "./config/routes.yaml"
         ]
     },
+    "symfony/serializer": {
+        "version": "v5.2.11"
+    },
+    "symfony/serializer-pack": {
+        "version": "v1.0.4"
+    },
     "symfony/service-contracts": {
         "version": "v2.4.0"
     },
@@ -313,6 +328,22 @@
             "./templates/base.html.twig"
         ]
     },
+    "symfony/twig-pack": {
+        "version": "v1.0.1"
+    },
+    "symfony/validator": {
+        "version": "4.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "4.3",
+            "ref": "d902da3e4952f18d3bf05aab29512eb61cabd869"
+        },
+        "files": [
+            "./config/packages/test/validator.yaml",
+            "./config/packages/validator.yaml"
+        ]
+    },
     "symfony/var-dumper": {
         "version": "v5.2.7"
     },
@@ -322,7 +353,13 @@
     "symfony/yaml": {
         "version": "v5.2.7"
     },
+    "twig/extra-bundle": {
+        "version": "v3.3.1"
+    },
     "twig/twig": {
         "version": "v3.3.0"
+    },
+    "webmozart/assert": {
+        "version": "1.10.0"
     }
 }

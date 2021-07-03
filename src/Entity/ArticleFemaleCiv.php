@@ -15,17 +15,17 @@ class ArticleFemaleCiv
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $id;
+    public $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $page;
+    public $page;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $statut;
+    public $statut;
 
     public function getId(): ?int
     {

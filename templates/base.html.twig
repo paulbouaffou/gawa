@@ -45,10 +45,10 @@
       <div class="footer-menu section" id="Postwidegt3" name="Footer Menu"><div class="widget LinkList" data-version="1" id="LinkList101">
         <div class="widget-content">
             <ul>
-              <li><a href="/" rel="nofollow" title="Accueil">Accueil</a></li>
+              <li><a href="{{ path('home') }}" rel="nofollow" title="Accueil">Accueil</a></li>
               <li><a href="#" rel="nofollow" title="Statistiques">Statistiques</a></li>
-              <li><a href="#" rel="nofollow" title="À propos">À propos</a></li>
-              <li><a href="#" rel="nofollow" title="Aide">Aide</a></li>
+              <li><a href="https://github.com/paulbouaffou/gawa#readme" rel="nofollow" title="À propos de GAWA">À propos de Gawa</a></li>
+              <li><a href="https://wikimedia.ci/organisation/" rel="nofollow" title="Wikimedia Côte d'Ivoire">Wikimedia Côte d'Ivoire</a></li>
               <li><a href="https://wikimedia.ci/contact/" rel="nofollow" title="Contact">Contact</a></li>
             </ul>
         </div>
@@ -57,7 +57,7 @@
       <!-- Footer menu end -->
       <!-- Footer credit start -->
       <div class="credit-wrapper"><div class="creditfooter">
-      Gawa est un outil géré par <a href="https://wikimedia.ci/" title="Wikimedia Côte d'Ivoire">Wikimedia Côte d'Ivoire</a>.
+      Gawa est un outil géré par Wikimedia Côte d'Ivoire.
       </div>
       </div>
       <!-- Footer credit end -->
@@ -71,40 +71,6 @@
     <script type="text/javascript" src="{{asset('assets/js/main.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/js/defile.js')}}"></script>
     <!-- Canvas.js -->
-    <script type="text/javascript" src="{{asset('assets/js/canvasjs.js')}}"></script>
-    <script type="text/javascript">
-      // Author: Paul Bouaffou
-      // License: MIT
-      // Description: Text Javascript
-
-
-      /* -------------- Vérifier les valeurs saisies dans le champ avant sa validation ---------------*/
-
-
-        function check(){
-             var nbr=document.form.form["rechercher"].value;
-             if (isNaN(nbr)){
-                 document.getElementById("msg").innerHTML="Entrez uniquement une valeur numérique !";
-                 return false;
-             }else if (nbr == "" || nbr == null) {
-              document.getElementById("msg").innerHTML="Veuillez saisir une valeur numérique !";
-              return false;
-             }else if (nbr < 0) {
-                document.getElementById("msg").innerHTML="Entrez uniquement un nombre positif !";
-                return false;
-            }else if (nbr != parseInt(nbr)) {
-                document.getElementById("msg").innerHTML="Entrez uniquement un nombre entier !";
-                return false;
-            }else if (nbr == 0){
-                document.getElementById("msg").innerHTML="Entrez uniquement une valeur numérique non nul !";
-                return false;               
-            }else if (nbr > {{articles|length}}){
-                document.getElementById("msg").innerHTML="Entrez une valeur numérique inférieur ou égal à {{articles|length}} !";
-                return false;               
-            }else{
-                 return true;
-             }
-         }
-    </script>
+    <script type="text/javascript" src="{{asset('assets/js/canvasjs.js')}}"></script> 
 </body>
 </html>

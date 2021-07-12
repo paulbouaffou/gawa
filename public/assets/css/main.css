@@ -87,6 +87,25 @@ canvas {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+.form-signin input[type="number"] {
+  margin-bottom: 10px;
+  border-radius: 100px;
+}
+
+.form-signin input[type="number"]:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.form-signin select {
+  margin-bottom: 10px;
+  border-radius: 100px;
+}
+
+.form-signin select:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
 
 /* -----Image------*/
 

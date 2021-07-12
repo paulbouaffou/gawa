@@ -11,6 +11,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -48,7 +49,7 @@ class PagesController extends AbstractController
     {
 
         $form = $this->createFormBuilder()
-            ->add('rechercher', TextType::class, ['label' => false, 'attr' => 
+            ->add('rechercher', IntegerType::class, ['label' => false, 'attr' => 
             	['class' => 'form-control',
             	'id' => 'inputNumber']])
             ->add('save', SubmitType::class, ['attr' => 
@@ -109,6 +110,8 @@ class PagesController extends AbstractController
             ->add('rechercher', TextType::class, ['label' => false, 'attr' => 
             	['class' => 'form-control', 
             	'placeholder' => 'Rechercher un article à améliorer par une lettre alphabétique',
+                'pattern' => '[a-zA-Z]',
+                'title' => 'Saisir uniquement une lettre alphabétique majuscule ou minuscule',
             	'id' => 'inputNumber']])
             ->add('save', SubmitType::class, ['attr' => 
             	['class' => 'btn btn-primary'],

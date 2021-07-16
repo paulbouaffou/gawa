@@ -1,55 +1,51 @@
 
 {% extends 'base.html.twig' %}
 
-{% block title 'Liste de tous les articles | ' ~ parent() %}
+{% block title 'Liste des articles par nombre | ' ~ parent() %}
 
 {% block content %}
 
-<div class="form-signin">
-  <div class="alert alert-light" role="alert">
-    <h2>RÉSULTAT</h2>
-    <hr/>
-    Le résultat ci-dessous vous présente de manière aléatoire <strong>
-    {% if articles|length <= 1 %} 
-    {{articles|length}}</strong> article
-    {% else %}
-    {{articles|length}}</strong> articles
-    {% endif %}
-    wikipédia à améliorer 
-    <br/>lié à la Côte d'Ivoire.
-  </div>
-    <div id="results-table">
-     <table class="table">
-      <thead class="thead-light">
-        <tr>
-          <th scope="col">N°</th>
-          <th scope="col">Articles</th>
-        </tr>
-      </thead>
-      <tbody>
-    {% if articles|length > 0 %}
-        {% for article in articles %}
-        <tr>
-           <th scope="row">{{loop.index}}</th>
-           <td><a href="https://fr.wikipedia.org/wiki/{{article.name}}" target="_blank">{{article.name}}</a></td>
-         </tr>
-        {% endfor %}
-    {% else %}
-        <h3>Aucun article à améliorer dans la base de données !!!</h3>
-    {% endif %}
-
-      </tbody>
-     </table>
-    <hr/>
-    <a href="{{ path('numberform') }}" class="btn btn-primary float-right">Retour</a>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    </div>
+<div class="form-signin-2">
+      <div class="alert alert-light" role="alert">
+        <h2>RÉSULTAT</h2>
+        <hr/>
+        Le résultat ci-dessous vous présente de manière aléatoire <strong>
+        {% if articles|length <= 1 %} 
+        {{articles|length}}</strong> article
+        {% else %}
+        {{articles|length}}</strong> articles
+        {% endif %}
+        wikipédia à améliorer lié à la Côte d'Ivoire.
+      </div> 
+      <table class="table table-hover">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">N°</th>
+            <th scope="col">Articles</th>
+          </tr>
+        </thead>
+        <tbody>
+              {% if articles|length > 0 %}
+                  {% for article in articles %}
+              <tr>
+                <th scope="row">{{loop.index}}</th>
+                <td><a class="text-left" href="https://fr.wikipedia.org/wiki/{{article.name}}" target="_blank">{{article.name}}</a></td>
+              </tr>
+                  {% endfor %}
+              {% else %}
+                <h3>Aucun article à améliorer dans la base de données !!!</h3>
+              {% endif %}
+            </tbody>
+      </table>
+        <hr/>
+        <a href="{{ path('numberform') }}" class="btn btn-primary float-right">Retour</a>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br> 
 </div>
 
 {% endblock %}

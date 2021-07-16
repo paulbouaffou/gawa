@@ -41,16 +41,6 @@ canvas {
   background-position: 50% 50%;
 }
 
-
-.form-signin {
-  width: 100%;
-  max-width: 480px;
-  padding: 30px;
-  padding-top: 25px;
-  margin: auto;
-  background-color: #e6e7e8;
-}
-
 .form-signin-1 {
   width: 100%;
   max-width: 480px;
@@ -61,6 +51,24 @@ canvas {
   position: relative;
   border-radius: 0px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.form-signin-2 {
+  width: 100%;
+  max-width: 800px;
+  padding: 30px;
+  padding-top: 25px;
+  margin: auto;
+  background-color: #e6e7e8;
+}
+
+.form-signin {
+  width: 100%;
+  max-width: 480px;
+  padding: 30px;
+  padding-top: 25px;
+  margin: auto;
+  background-color: #e6e7e8;
 }
 
 .form-signin .checkbox {
@@ -156,6 +164,7 @@ footer{
   position: fixed;
   padding: 0px;
 }
+
 #footer-wrapper {margin:0 auto;padding:0}
 #footer-limit{position:relative;display:block;margin:0 auto;padding:0;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}
 /* Footer 3 column */

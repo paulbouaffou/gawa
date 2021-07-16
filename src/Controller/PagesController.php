@@ -176,45 +176,41 @@ class PagesController extends AbstractController
 
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) 
+        {
             // $form->getData() holds the submitted values
             // but, the original `$task` variable has also been updated
             $array_data = $form->getData();
 
-            if ($array_data = true) {
+            $data = $array_data['Genre'];
+
+            if (isset($data) && $data = false) {
                 
+                return $this->render('pages/home.html.twig');
             }
+            elseif (isset($data) && $data = true) {
+                
+                 return $this->render('pages/home.html.twig');
+            }
+            elseif (isset($data) && $data = null) {
+                
+                 return $this->render('pages/genreform.html.twig', [
+            'form' => $form->createView()]);
 
-            // ... perform some action, such as saving the task to the database
-            // for example, if Task is a Doctrine entity, save it!
-            // $entityManager = $this->getDoctrine()->getManager();
-            // $entityManager->persist($task);
-            // $entityManager->flush();
-
-            //return $this->redirectToRoute('task_success');
-
-            $articlewiki = $this->getDoctrine()
-                ->getRepository(ArticleWiki::class)
-                ->findArticleByNumber($value);
-
-            return $this->render('pages/articlegenre.html.twig', ['articles' => $articlewiki]);
-
-
-        }
-        else{
-
-            //return $this->redirectToRoute('task_success');
-
-            $articlewiki = $this->getDoctrine()
-                ->getRepository(ArticleWiki::class)
-                ->findAll();
+            }
+            else{
 
             return $this->render('pages/genreform.html.twig', [
-            'form' => $form->createView(), 'articles' => $articlewiki]);
+            'form' => $form->createView()]);
+
+            }
+        }   
+        else{
+
+            return $this->render('pages/genreform.html.twig', [
+            'form' => $form->createView()]);
 
         }
-    }
-
-	
+    }	
 	
 } 

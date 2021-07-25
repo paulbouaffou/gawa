@@ -42,6 +42,17 @@ class PagesController extends AbstractController
 
     /**
 
+    * @Route("/about", name="about")
+
+    */
+    public function about()
+    {
+
+        return $this->render('pages/about.html.twig');
+    }
+
+    /**
+
 	* @Route("/numberform", name="numberform")
 
 	*/
@@ -166,8 +177,8 @@ class PagesController extends AbstractController
                  'id' => 'inputGenre'],
                 'choices'  => [
                 'Veuillez choisir votre genre' => null,
-                'Masculin' => true,
-                'Féminin' => false,
+                'Masculin' => 'homme',
+                'Féminin' => 'femme',
                 ],])
             ->add('save', SubmitType::class, ['attr' => 
                     ['class' => 'btn btn-primary'],
@@ -184,13 +195,19 @@ class PagesController extends AbstractController
 
             $data = $array_data['Genre'];
 
-            if (isset($data) && $data = false) {
-                
-                return $this->render('pages/home.html.twig');
+            if (isset($data) && $data = 'femme') {
+
+                $genre = "la femme";
+
+                return $this->render('pages/listlinkgenre.html.twig', [
+                    'genre' => $genre]);
             }
-            elseif (isset($data) && $data = true) {
+            elseif (isset($data) && $data = 'homme') {
                 
-                 return $this->render('pages/home.html.twig');
+                 $genre = "l'homme";
+
+                return $this->render('pages/listlinkgenre.html.twig', [
+                    'genre' => $genre]);
             }
             elseif (isset($data) && $data = null) {
                 

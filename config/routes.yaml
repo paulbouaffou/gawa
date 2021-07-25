@@ -12,6 +12,12 @@ pagebutton:
     controller: App\Controller\PagesController::pagebutton
 
 
+# the "app_about" route name is not important yet
+about:
+    path: /about
+    controller: App\Controller\PagesController::about
+
+
 # the "app_articleletter" route name is not important yet
 articleletter:
     path: /articleletter
@@ -39,3 +45,15 @@ letterform:
 genreform:
     path: /genreform
     controller: App\Controller\PagesController::genreform
+
+
+# the "app_listlinkgenre" route name is not important yet
+listlinkgenre:
+    path: /listlinkgenre
+    controller: App\Controller\PagesController::listlinkgenre
+
+
+# the "app_articlegenre" route name is not important yet
+articlegenre:
+    path: /articlegenre
+    controller: App\Controller\PagesController::articlegenre

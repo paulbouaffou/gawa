@@ -1,0 +1,42 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title 'Articles wikipédia liés à homme ivoirien | ' ~ parent() %}
+
+{% block content %}
+
+<div class="form-signin-2">
+  <div class="alert alert-light" role="alert">
+      <h2>RÉSULTAT</h2>
+      <hr/>
+      Le résultat ci-dessous vous présente des articles wikipédia à créer et à améliorer liés à homme ivoirien.
+  </div> 
+    <br>
+    <button class="accordion">Tous les Articles wikipédia liés à homme ivoirien</button>
+      <div class="panel">
+        <br>
+        <p>Lorem ipsu</p>
+      </div>
+
+    <button class="accordion">Articles wikipédia à améliorer liés à homme ivoirien</button>
+      <div class="panel">
+        <br>
+        <p>Lorem ipsu</p>
+      </div>
+
+    <button class="accordion">Articles à créer liés à homme ivoirien</button>
+      <div class="panel">
+        <br>
+        <p>Lorem ipsu</p>
+      </div>
+    <br>
+    <br>
+    <hr/>
+    <a href="{{ path('genreform') }}" class="btn btn-primary float-right">Retour</a>
+    <br>
+    <br>
+    <br>
+    </div>
+</div>
+
+{% endblock %}

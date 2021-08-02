@@ -6,10 +6,11 @@
 {% block content %}
 
 <div class="form-signin">
-  {{ form_start(form, {'method': 'POST'}) }}
-    <img class="mb-4 image1" src="{{asset('assets/images/logo.jpg')}}" alt="Gawa">
-    <span id="msg"></span>
-  {{ form_end(form) }}
+    <img class="mb-4 image1" src="/assets/images/logo.jpg" alt="Gawa">
+	<p>Veuillez cliquer sur le genre de votre choix :</p>
+      <hr/>
+      <a href="{{ path('listmale') }}" class="btn btn-primary">Homme</a>
+      <a href="{{ path('listfemale') }}" class="btn btn-primary">Femme</a>
 </div>
 
 {% endblock %}

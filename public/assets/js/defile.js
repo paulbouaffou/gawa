@@ -49,4 +49,4 @@ class Words {
 	}
 }
 
-new Words(['nombre', 'lettre', 'genre', 'thématique', 'catégorie']);
+new Words(['nombre', 'lettre', 'genre']);

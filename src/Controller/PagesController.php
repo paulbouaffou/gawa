@@ -5,6 +5,8 @@ namespace App\Controller;
 
 use App\Entity\ArticleWiki;
 use App\Repository\ArticleWikiRepository;
+use App\Entity\ArticleFemaleCiv;
+use App\Repository\ArticleFemaleCivRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver; 
@@ -12,7 +14,6 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -168,66 +169,40 @@ class PagesController extends AbstractController
     * @Route("/genreform", name="genreform")
 
     */
-    public function genreform(Request $request, ArticleWikiRepository $articlewikiRepository): Response
-    {
+     public function genreform() {
 
-        $form = $this->createFormBuilder()
-            ->add('Genre', ChoiceType::class, ['label' => false, 'attr' => 
-                ['class' => 'form-control', 
-                 'id' => 'inputGenre'],
-                'choices'  => [
-                'Veuillez choisir votre genre' => null,
-                'Masculin' => 'homme',
-                'Féminin' => 'femme',
-                ],])
-            ->add('save', SubmitType::class, ['attr' => 
-                    ['class' => 'btn btn-primary'],
-                    'label' => 'Afficher'])
-            ->getForm(); 
+        return $this->render('pages/genreform.html.twig');
 
-        $form->handleRequest($request);
+     }
 
-        if ($form->isSubmitted() && $form->isValid()) 
-        {
-            // $form->getData() holds the submitted values
-            // but, the original `$task` variable has also been updated
-            $array_data = $form->getData();
+     /**
 
-            $data = $array_data['Genre'];
+    * @Route("/listmale", name="listmale")
 
-            if (isset($data) && $data = 'femme') {
+    */
+     public function listmale() {
 
-                $genre = "la femme";
+        return $this->render('pages/listmale.html.twig');
 
-                return $this->render('pages/listlinkgenre.html.twig', [
-                    'genre' => $genre]);
-            }
-            elseif (isset($data) && $data = 'homme') {
-                
-                 $genre = "l'homme";
+     }
 
-                return $this->render('pages/listlinkgenre.html.twig', [
-                    'genre' => $genre]);
-            }
-            elseif (isset($data) && $data = null) {
-                
-                 return $this->render('pages/genreform.html.twig', [
-            'form' => $form->createView()]);
+     /**
 
-            }
-            else{
+    * @Route("/listfemale", name="listfemale")
 
-            return $this->render('pages/genreform.html.twig', [
-            'form' => $form->createView()]);
+    */
+     public function listfemale() {
 
-            }
-        }   
-        else{
+        $listAllArticleFemale = $this->getDoctrine()
+                ->getRepository(ArticleFemaleCiv::class)
+                ->listAllArticleFemale();
 
-            return $this->render('pages/genreform.html.twig', [
-            'form' => $form->createView()]);
+        $listArticleFemaleCreate = $this->getDoctrine()
+                ->getRepository(ArticleFemaleCiv::class)
+                ->listArticleFemaleCreate();
 
-        }
-    }	
+        return $this->render('pages/listfemale.html.twig', ['allfemales' => $listAllArticleFemale, 'femalescreate' => $listArticleFemaleCreate]);
+
+     }
 	
 } 

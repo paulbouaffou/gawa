@@ -1,0 +1,62 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title 'Articles wikipédia liés à la femme ivoirienne | ' ~ parent() %}
+
+{% block content %}
+
+    <div class="form-signin-2">
+      <div class="alert alert-light" role="alert">
+          <h2>RÉSULTAT</h2>
+          <hr/>
+          Le résultat ci-dessous vous présente des articles wikipédia à créer et à améliorer liés à la femme ivoirienne.
+      </div> 
+        <br>
+        <button class="accordion">Tous les Articles wikipédia liés à la femme ivoirienne</button>
+          <div class="panel">
+            <br>
+            <p>Nous vous présentons les {{allfemales|length}} articles wikipédia liés à la femme ivoirienne :</p>
+    {% if allfemales|length > 0 %}
+        {% for allfemale in allfemales %}
+          <a href="https://fr.wikipedia.org/wiki/{{allfemale.page}}" target="_blank">{{allfemale.page}}</a> - 
+        {% endfor %}
+    {% else %}
+        <h3>Aucun article wikipédia dans la base de données !!!</h3>
+    {% endif %}
+            <br>
+          </div>
+
+        <button class="accordion">Articles wikipédia à améliorer liés à la femme ivoirienne</button>
+          <div class="panel">
+            <br>
+            <p>Lorem ipsu</p>
+          </div>
+
+        <button class="accordion">Articles à créer liés à la femme ivoirienne</button>
+          <div class="panel">
+            <br>
+            <p>Nous vous présentons les {{femalescreate|length}} articles à créer liés à la femme ivoirienne :</p>
+    {% if femalescreate|length > 0 %}
+        {% for femalecreate in femalescreate %}
+          <a class="a-color" href="https://fr.wikipedia.org/wiki/{{femalecreate.page}}" target="_blank">{{femalecreate.page}}</a> - 
+        {% endfor %}
+    {% else %}
+        <h3>Aucun article wikipédia dans la base de données !!!</h3>
+    {% endif %}
+            <br>
+            <br>
+          </div>
+        <br>
+        <br>
+        <hr/>
+        <a href="{{ path('genreform') }}" class="btn btn-primary float-right">Retour</a>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,5 +1,18 @@
 <?php
 
+/*
+#############################################################################
+#                                                                           #
+#   @Auteur : Paul Bouaffou                                                 #
+#                                                                           #
+#   @Description : API de génération des articles wikipédia                 #
+#   à améliorer et à créer liés à la femme ivoirienne                       #
+#                                                                           #
+#   @Licence : Licence MIT                                                  #
+#                                                                           #
+#############################################################################
+*/ 
+
 class SPARQLQueryDispatcher
 {
     private $endpointUrl;

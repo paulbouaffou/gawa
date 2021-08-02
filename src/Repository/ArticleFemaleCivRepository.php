@@ -19,6 +19,46 @@ class ArticleFemaleCivRepository extends ServiceEntityRepository
         parent::__construct($registry, ArticleFemaleCiv::class);
     }
 
+    /**
+     * @return ArticleFemaleCiv[] Returns an array of ArticleFemaleCiv objects
+     */
+
+    public function listAllArticleFemale(): array
+    {
+        $conn = $this->getEntityManager()->getConnection();
+
+        $sql = '
+            SELECT * FROM article_female_civ 
+            WHERE statut = "yesArticleWikipedia"
+            ORDER BY page ASC';
+
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+
+        // returns an array of arrays (i.e. a raw data set)
+        return $stmt->fetchAllAssociative();
+    }
+
+    /**
+     * @return ArticleFemaleCiv[] Returns an array of ArticleFemaleCiv objects
+     */
+
+    public function listArticleFemaleCreate(): array
+    {
+        $conn = $this->getEntityManager()->getConnection();
+
+        $sql = '
+            SELECT * FROM article_female_civ 
+            WHERE statut = "noArticleWikipedia"
+            ORDER BY page ASC';
+
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+
+        // returns an array of arrays (i.e. a raw data set)
+        return $stmt->fetchAllAssociative();
+    }
+
     // /**
     //  * @return ArticleFemaleCiv[] Returns an array of ArticleFemaleCiv objects
     //  */

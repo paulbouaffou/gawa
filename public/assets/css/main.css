@@ -150,6 +150,17 @@ span {
   clear: both;
 }
 
+.a-color{
+  color: #ff0000;
+}
+
+.a-color:hover{
+  color: #ff0000;
+}
+.a-color:active{
+  color: #ff0000;
+}
+
 /* ----------------------------------------FOOTER------------------------------------------------*/
 
 /* footer-wrapper */

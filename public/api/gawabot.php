@@ -11,8 +11,9 @@
 #   @Licence : Licence MIT                                                  #
 #                                                                           #
 #############################################################################
-*/ 
-/* ---------------------------Fonction(s)----------------------------------*/
+*/
+
+  /* ---------------------------Fonction(s)----------------------------------*/
 
    // Fonction de traitement des données de format JSON issues d'une URL
    function url_response($url){

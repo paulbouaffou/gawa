@@ -55,10 +55,4 @@ listfemale:
 # the "app_listmale" route name is not important yet
 listmale:
     path: /genreform/listmale
-    controller: App\Controller\PagesController::listmale
-
-
-# the "app_articlegenre" route name is not important yet
-articlegenre:
-    path: /articlegenre
-    controller: App\Controller\PagesController::articlegenre
+    controller: App\Controller\PagesController::listmale 

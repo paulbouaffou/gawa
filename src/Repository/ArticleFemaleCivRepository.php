@@ -29,7 +29,7 @@ class ArticleFemaleCivRepository extends ServiceEntityRepository
 
         $sql = '
             SELECT * FROM article_female_civ 
-            WHERE statut = "yesArticleWikipedia"
+            WHERE statut != "noArticleWikipedia"
             ORDER BY page ASC';
 
         $stmt = $conn->prepare($sql);
@@ -50,6 +50,26 @@ class ArticleFemaleCivRepository extends ServiceEntityRepository
         $sql = '
             SELECT * FROM article_female_civ 
             WHERE statut = "noArticleWikipedia"
+            ORDER BY page ASC';
+
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+
+        // returns an array of arrays (i.e. a raw data set)
+        return $stmt->fetchAllAssociative();
+    }
+
+    /**
+     * @return ArticleFemaleCiv[] Returns an array of ArticleFemaleCiv objects
+     */
+
+    public function listArticleFemaleImprove(): array
+    {
+        $conn = $this->getEntityManager()->getConnection();
+
+        $sql = '
+            SELECT * FROM article_female_civ 
+            WHERE statut = "yesArticleWikipediaWithProblem"
             ORDER BY page ASC';
 
         $stmt = $conn->prepare($sql);

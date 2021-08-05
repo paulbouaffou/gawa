@@ -6,7 +6,7 @@
 #   @Auteur : Paul Bouaffou                                                 #
 #                                                                           #
 #   @Description : API de génération des articles wikipédia                 #
-#   à améliorer et à créer liés à la femme ivoirienne                       #
+#   à améliorer liés à la femme ivoirienne                                  #
 #                                                                           #
 #   @Licence : Licence MIT                                                  #
 #                                                                           #
@@ -56,6 +56,22 @@ SPARQL;
 $queryDispatcher = new SPARQLQueryDispatcher($endpointUrl);
 $queryResult = $queryDispatcher->query($sparqlQueryString);
 
+/* ---------------------------Fonction(s)----------------------------------*/
+
+   // Fonction de traitement des données de format JSON issues d'une URL
+   function url_response($url){
+
+       // Lecture des données au format JSON dans une chaîne
+       $json_content = file_get_contents($url);
+
+       // Décodage d'une chaîne JSON
+       $json_response = json_decode($json_content, true);
+
+       // Résultat
+       return $json_response;
+
+   }
+
 if(isset($queryResult['results'])){
 
     foreach ($queryResult['results']['bindings'] as $queryFirst) {
@@ -64,21 +80,34 @@ if(isset($queryResult['results'])){
 
         if (isset($page_wiki)) {
 
-            $urlWikipediaFr = "https://fr.wikipedia.org/w/api.php?action=parse&prop=text&format=json&page=";
+            $statut = "yesArticleWikipediaWithProblem";
 
-            $articleWikipediaFrLink = $urlWikipediaFr.urlencode($page_wiki);
+                // URL secondaire et incomplète pour l'obtention des modèles d'un article wikipédia
+               $url_first = "https://fr.wikipedia.org/w/api.php?action=parse&format=json&prop=templates&page=";
 
-            // Lecture des données au format JSON dans une chaîne
-            $json_content = file_get_contents($articleWikipediaFrLink);
+               // URL secondaire et complète faisant passé en revue tous les articles wikipédia après encodage de ceux-ci
+               $url_second = $url_first.urlencode($page_wiki);
 
-            // Décodage d'une chaîne JSON
-            $json_response = json_decode($json_content, true);
+               // Exécution de la fonction url_response()
+               $page_wiki_treatment = url_response($url_second);
 
-            if (!isset($json_response['error'])) {
+               // Détermine si la variable $page_wiki_treatment['parse']['templates'] est déclarée et est différente de null
+               if (isset($page_wiki_treatment['parse']['templates'])) {
+                  
+                  foreach ($page_wiki_treatment['parse']['templates'] as $content_third) {
+                     
+                     $data_third = $content_third['*'];
 
-                $statut = "yesArticleWikipedia";
-                
-                try {
+                     // Détermine si la variable $data_third est déclarée et est différente de null
+                     if (isset($data_third)) {
+                        
+                        // Modèle ou template wikipédia demandant l'amélioration d'un article
+                        $modele_template = array("Modèle:Méta bandeau d'avertissement");
+
+                        // Vérification de la présence du Modèle:Méta bandeau d'avertissement dans le groupe des modèles de l'article
+                        if (in_array($data_third, $modele_template)) {
+
+                          try {
 
                             $bdd = new PDO('mysql:host=localhost;dbname=gawadb;charset=utf8', 'root', 'azerty1998');
 
@@ -90,42 +119,31 @@ if(isset($queryResult['results'])){
 
                             }
 
-                          $req = $bdd->prepare('INSERT INTO articlefemaleciv(page, statut) VALUES(:page, :statut)');
+                          $req = $bdd->prepare('INSERT INTO article_female_civ(page, statut) VALUES(:page, :statut)');
 
                           $req->execute(array('page' => $page_wiki, 'statut' => $statut));
 
                           $message = "Article à améliorer enregistré avec succès";
 
                           echo $message."\n";
-            }
-            elseif (isset($json_response['error'])) {
 
-                $statut = "noArticleWikipedia";
-                
-                try {
 
-                            $bdd = new PDO('mysql:host=localhost;dbname=gawadb;charset=utf8', 'root', 'azerty1998');
+                        }
 
-                            }
+                    }
+                }
+            }    
+        }
+        else{
 
-                          catch(Exception $e) {
+          $message = "Aucun article à problème !";
 
-                            die('Erreur : '.$e->getMessage());
+          echo $message."\n";
 
-                            }
-
-                          $req = $bdd->prepare('INSERT INTO articlefemaleciv(page, statut) VALUES(:page, :statut)');
-
-                          $req->execute(array('page' => $page_wiki, 'statut' => $statut));
-
-                          $message = "Article à améliorer enregistré avec échec";
-
-                          echo $message."\n";
-            }
+        }
 
 
         }
-    }
 }
 else{
 

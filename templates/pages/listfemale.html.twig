@@ -12,7 +12,7 @@
           Le résultat ci-dessous vous présente des articles wikipédia à créer et à améliorer liés à la femme ivoirienne.
       </div> 
         <br>
-        <button class="accordion">Tous les Articles wikipédia liés à la femme ivoirienne</button>
+        <button class="accordion">Tous les articles wikipédia liés à la femme ivoirienne</button>
           <div class="panel">
             <br>
             <p>Nous vous présentons les {{allfemales|length}} articles wikipédia liés à la femme ivoirienne :</p>
@@ -29,7 +29,15 @@
         <button class="accordion">Articles wikipédia à améliorer liés à la femme ivoirienne</button>
           <div class="panel">
             <br>
-            <p>Lorem ipsu</p>
+            <p>Nous vous présentons les {{femalesimprove|length}} articles wikipédia à éditer urgemment liés à la femme ivoirienne :</p>
+    {% if allfemales|length > 0 %}
+        {% for femaleimprove in femalesimprove %}
+          <a href="https://fr.wikipedia.org/wiki/{{femaleimprove.page}}" target="_blank">{{femaleimprove.page}}</a> - 
+        {% endfor %}
+    {% else %}
+        <h3>Aucun article wikipédia dans la base de données !!!</h3>
+    {% endif %}
+            <br>
           </div>
 
         <button class="accordion">Articles à créer liés à la femme ivoirienne</button>

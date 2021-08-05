@@ -5,8 +5,8 @@
 #                                                                           #
 #   @Auteur : Paul Bouaffou                                                 #
 #                                                                           #
-#   @Description : API de génération des articles wikipédia                 #
-#   à améliorer et à créer liés à l'homme ivoirien                          #
+#   @Description : API de génération de tous les articles wikipédia         #
+#   et ceux-ci à créer liés à la femme ivoirienne                           #
 #                                                                           #
 #   @Licence : Licence MIT                                                  #
 #                                                                           #
@@ -90,7 +90,7 @@ if(isset($queryResult['results'])){
 
                             }
 
-                          $req = $bdd->prepare('INSERT INTO articlefemaleciv(page, statut) VALUES(:page, :statut)');
+                          $req = $bdd->prepare('INSERT INTO article_female_civ(page, statut) VALUES(:page, :statut)');
 
                           $req->execute(array('page' => $page_wiki, 'statut' => $statut));
 
@@ -114,7 +114,7 @@ if(isset($queryResult['results'])){
 
                             }
 
-                          $req = $bdd->prepare('INSERT INTO articlefemaleciv(page, statut) VALUES(:page, :statut)');
+                          $req = $bdd->prepare('INSERT INTO article_female_civ(page, statut) VALUES(:page, :statut)');
 
                           $req->execute(array('page' => $page_wiki, 'statut' => $statut));
 

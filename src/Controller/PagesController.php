@@ -197,11 +197,15 @@ class PagesController extends AbstractController
                 ->getRepository(ArticleFemaleCiv::class)
                 ->listAllArticleFemale();
 
+        $listArticleFemaleImprove = $this->getDoctrine()
+                ->getRepository(ArticleFemaleCiv::class)
+                ->listArticleFemaleImprove();
+
         $listArticleFemaleCreate = $this->getDoctrine()
                 ->getRepository(ArticleFemaleCiv::class)
                 ->listArticleFemaleCreate();
 
-        return $this->render('pages/listfemale.html.twig', ['allfemales' => $listAllArticleFemale, 'femalescreate' => $listArticleFemaleCreate]);
+        return $this->render('pages/listfemale.html.twig', ['allfemales' => $listAllArticleFemale, 'femalescreate' => $listArticleFemaleCreate, 'femalesimprove' => $listArticleFemaleImprove]);
 
      }
 	

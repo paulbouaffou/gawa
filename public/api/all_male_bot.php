@@ -44,9 +44,9 @@ class SPARQLQueryDispatcher
 
 $endpointUrl = 'https://query.wikidata.org/sparql';
 $sparqlQueryString = <<< 'SPARQL'
-# Ivorian female
+# Ivorian male
 SELECT ?itemLabel WHERE {
-  ?item wdt:P21 wd:Q6581072. # gender: female
+  ?item wdt:P21 wd:Q6581097. # gender: male
   ?item wdt:P27 wd:Q1008. # place of birth Côte d'Ivoire
   SERVICE wikibase:label { bd:serviceParam wikibase:language "en,fr" }
 }
@@ -90,7 +90,7 @@ if(isset($queryResult['results'])){
 
                             }
 
-                          $req = $bdd->prepare('INSERT INTO articlefemaleciv(page, statut) VALUES(:page, :statut)');
+                          $req = $bdd->prepare('INSERT INTO article_male_civ(page, statut) VALUES(:page, :statut)');
 
                           $req->execute(array('page' => $page_wiki, 'statut' => $statut));
 
@@ -114,7 +114,7 @@ if(isset($queryResult['results'])){
 
                             }
 
-                          $req = $bdd->prepare('INSERT INTO articlefemaleciv(page, statut) VALUES(:page, :statut)');
+                          $req = $bdd->prepare('INSERT INTO article_male_civ(page, statut) VALUES(:page, :statut)');
 
                           $req->execute(array('page' => $page_wiki, 'statut' => $statut));
 

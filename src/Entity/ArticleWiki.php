@@ -20,7 +20,7 @@ class ArticleWiki
     /**
      * @ORM\Column(type="string", length=255)
      */
-    public $name;
+    public $page;
 
 }
 

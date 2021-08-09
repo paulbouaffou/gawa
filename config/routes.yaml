@@ -17,6 +17,16 @@ about:
     path: /about
     controller: App\Controller\PagesController::about
 
+# the "app_stats" route name is not important yet
+stats:
+    path: /stats
+    controller: App\Controller\PagesController::stats
+
+# the "app_help" route name is not important yet
+help:
+    path: /genreform/help
+    controller: App\Controller\PagesController::help 
+
 
 # the "app_articleletter" route name is not important yet
 articleletter:

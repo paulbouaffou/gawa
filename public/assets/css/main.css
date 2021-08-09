@@ -134,14 +134,14 @@ span {
 /* Float four columns side by side */
 .column {
   width: 100%;
-  max-width: 200px;
+  max-width: 300px;
   display: block;
   margin-bottom: 10px;
   margin-left: 10px;
 }
 
 /* Remove extra left and right margins, due to padding */
-.row {margin-left: 90px; margin-right: 90px;}
+.row {margin-left: none; margin-right: none;}
 
 /* Clear floats after the columns */
 .row:after {

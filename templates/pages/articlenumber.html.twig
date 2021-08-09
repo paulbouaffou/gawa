@@ -29,7 +29,7 @@
                   {% for article in articles %}
               <tr>
                 <th scope="row">{{loop.index}}</th>
-                <td><a class="text-left" href="https://fr.wikipedia.org/wiki/{{article.name}}" target="_blank">{{article.name}}</a></td>
+                <td><a class="text-left" href="https://fr.wikipedia.org/wiki/{{article.page}}" target="_blank">{{article.page}}</a></td>
               </tr>
                   {% endfor %}
               {% else %}

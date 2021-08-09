@@ -49,9 +49,9 @@
         <div class="widget-content">
             <ul>
               <li><a href="{{ path('home') }}" rel="nofollow" title="Accueil">Accueil</a></li>
-              <li><a href="#" rel="nofollow" title="Statistiques">Statistiques</a></li>
+              <li><a href="{{ path('stats') }}" rel="nofollow" title="Statistiques">Statistiques</a></li>
               <li><a href="{{path('about')}}" rel="nofollow" title="À propos">À propos</a></li>
-              <li><a href="#" rel="nofollow" title="Wikimedia Côte d'Ivoire">Aide</a></li>
+              <li><a href="{{ path('help') }}" rel="nofollow" title="Wikimedia Côte d'Ivoire">Aide</a></li>
               <li><a href="https://wikimedia.ci/contact/" rel="nofollow" title="Contact">Contact</a></li>
             </ul>
         </div>
@@ -74,7 +74,7 @@
     <script type="text/javascript" src="{{asset('assets/js/main.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/js/accordion.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/js/defile.js')}}"></script>
-    <!-- Canvas.js -->
+    <!-- Chart.js -->
     <script type="text/javascript" src="{{asset('assets/js/canvasjs.js')}}"></script> 
 </body>
 </html>

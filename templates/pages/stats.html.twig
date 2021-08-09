@@ -1,0 +1,100 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Statistiques | ' ~ parent() %}
+
+{% block content %}
+
+<script>
+window.onload = function() {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+	theme: "light2", // "light1", "light2", "dark1", "dark2"
+	exportEnabled: true,
+	animationEnabled: true,
+	title:{
+		text: "Articles Wikipédia - Côte d'Ivoire",
+		horizontalAlign: "left"
+	},
+	data: [{
+		type: "pie",
+		startAngle: 60,
+		toolTipContent: "<b>{label}</b>: {y}%",
+		indexLabelFontSize: 16,
+		indexLabel: "{label} - #percent%",
+		toolTipContent: "<b>{label}:</b> {y} (#percent%)",
+		dataPoints: [
+			{ y: {{femalesimprove|length}}, label: "Article wikipédia à améliorer lié à la femme ivoirienne" },
+			{ y: {{malesimprove|length}}, label: "Article wikipédia à améliorer lié à l'homme ivoirien" },
+			{ y: {{articles|length}} - {{femalesimprove|length}} - {{malesimprove|length}}, label: "Article wikipédia à améliorer (Divers)" },
+			
+		]
+	}]
+});
+chart.render();
+
+}
+</script>
+
+<div class="form-signin-2">
+	<div class="alert alert-light" role="alert">
+      <h2>STATISTIQUES</h2>
+      <hr>
+      <p>Données mises à jour le {{ "now"|date("d/m/Y") }}</p>
+    </div>
+    <div class="alert alert-light" role="alert">
+      <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+    </div>
+    <hr/>
+    <div class="alert alert-light" role="alert">
+     <h5>ARTICLES WIKIPÉDIA À AMÉLIORER</h5>
+     <hr/>
+      <h2>{{articles|length}}</h2>
+          <p>Articles wikipédia à améliorer liés à la Côte d'Ivoire</p>
+    </div>
+    <div class="row">
+     <div class="col-6">
+      <div class="alert alert-light" role="alert">
+      <h2>{{malesimprove|length}}</h2>
+          <p>Articles wikipédia à améliorer liés à l'homme ivoirien</p>
+	  </div>
+     </div>
+     <div class="col-6">
+      <div class="alert alert-light" role="alert">
+      <h2>{{femalesimprove|length}}</h2>
+          <p>Articles wikipédia à améliorer liés à la femme ivoirienne</p>
+	  </div>
+     </div>
+    </div>
+    <hr/>
+    <div class="alert alert-light" role="alert">
+     <h5>ARTICLES À CRÉER</h5>
+     <hr/>
+     <p>Ce sont des articles liés à la Côte d'Ivoire, existant sur d'autres projets Wiki mais pas sur wikipédia.</p>
+    </div>
+    <div class="row">
+     <div class="col-6">
+      <div class="alert alert-light" role="alert">
+      <h2>{{malescreate|length}}</h2>
+          <p>Articles à créer liés à l'homme ivoirien</p>
+	  </div>
+     </div>
+     <div class="col-6">
+      <div class="alert alert-light" role="alert">
+      <h2>{{femalescreate|length}}</h2>
+          <p>Articles à créer liés à la femme ivoirienne</p>
+	  </div>
+     </div>
+    </div>
+
+    
+    <hr>
+    <a href="{{path('home')}}" class="btn btn-primary float-right">Fermer</a>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+</div>
+
+{% endblock %}

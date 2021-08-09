@@ -46,7 +46,7 @@ class ArticleWikiRepository extends ServiceEntityRepository
 
         $sql = '
             SELECT * FROM article_wiki 
-            WHERE name LIKE :letter
+            WHERE page LIKE :letter
             ';
         $stmt = $conn->prepare($sql);
         $stmt->execute(['letter' => $letter.'%']);

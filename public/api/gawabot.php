@@ -89,9 +89,9 @@
 
                             }
 
-                          $req = $bdd->prepare('INSERT INTO article_wiki(name) VALUES(:name)');
+                          $req = $bdd->prepare('INSERT INTO article_wiki(page) VALUES(:page)');
 
-                          $req->execute(array('name' => $page_wiki));
+                          $req->execute(array('page' => $page_wiki));
 
                           $message = "Article à améliorer enregistré avec succès";
 

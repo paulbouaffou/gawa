@@ -7,6 +7,8 @@ use App\Entity\ArticleWiki;
 use App\Repository\ArticleWikiRepository;
 use App\Entity\ArticleFemaleCiv;
 use App\Repository\ArticleFemaleCivRepository;
+use App\Entity\ArticleMaleCiv;
+use App\Repository\ArticleMaleCivRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver; 
@@ -50,6 +52,47 @@ class PagesController extends AbstractController
     {
 
         return $this->render('pages/about.html.twig');
+    }
+
+     /**
+
+    * @Route("/stats", name="stats")
+
+    */
+    public function stats()
+    {
+        $articlewiki = $this->getDoctrine()
+                ->getRepository(ArticleWiki::class)
+                ->findAll();
+
+        $listArticleMaleImprove = $this->getDoctrine()
+                ->getRepository(ArticleMaleCiv::class)
+                ->listArticleMaleImprove();
+
+        $listArticleMaleCreate = $this->getDoctrine()
+                ->getRepository(ArticleMaleCiv::class)
+                ->listArticleMaleCreate();
+
+        $listArticleFemaleImprove = $this->getDoctrine()
+                ->getRepository(ArticleFemaleCiv::class)
+                ->listArticleFemaleImprove();
+
+        $listArticleFemaleCreate = $this->getDoctrine()
+                ->getRepository(ArticleFemaleCiv::class)
+                ->listArticleFemaleCreate();
+
+        return $this->render('pages/stats.html.twig', ['articles' => $articlewiki, 'malescreate' => $listArticleMaleCreate, 'malesimprove' => $listArticleMaleImprove, 'femalescreate' => $listArticleFemaleCreate, 'femalesimprove' => $listArticleFemaleImprove,]);
+    }
+
+    /**
+
+    * @Route("/help", name="help")
+
+    */
+    public function help()
+    {
+
+        return $this->render('pages/help.html.twig');
     }
 
     /**
@@ -180,11 +223,22 @@ class PagesController extends AbstractController
     * @Route("/listmale", name="listmale")
 
     */
-     public function listmale() {
+    public function listmale() {
 
-        return $this->render('pages/listmale.html.twig');
+        $listAllArticleMale = $this->getDoctrine()
+                ->getRepository(ArticleMaleCiv::class)
+                ->listAllArticleMale();
 
-     }
+        $listArticleMaleImprove = $this->getDoctrine()
+                ->getRepository(ArticleMaleCiv::class)
+                ->listArticleMaleImprove();
+
+        $listArticleMaleCreate = $this->getDoctrine()
+                ->getRepository(ArticleMaleCiv::class)
+                ->listArticleMaleCreate();
+
+        return $this->render('pages/listmale.html.twig', ['allmales' => $listAllArticleMale, 'malescreate' => $listArticleMaleCreate, 'malesimprove' => $listArticleMaleImprove]);
+    }
 
      /**
 
